@@ -3,7 +3,7 @@ from datasets.Dataset_utils import full_check_ds
 
 if __name__ == '__main__':
     create_dataset()
-    # full_check_ds()
+    full_check_ds()
 
 
 
