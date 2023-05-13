@@ -185,7 +185,7 @@ def create_dataset() -> None:
             os.system(f"curl -O {url}/{filename}")
             os.system(f"gunzip -f {filename}")
 
-        shutil.move('datasets/train-images-idx3-ubyte.gz', train_folder)
+        shutil.move('train-images-idx3-ubyte.gz', train_folder)
         shutil.move('train-labels-idx1-ubyte.gz', train_folder)
         shutil.move('t10k-images-idx3-ubyte.gz', test_folder)
         shutil.move('t10k-labels-idx1-ubyte.gz', test_folder)
