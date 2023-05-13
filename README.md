@@ -29,7 +29,7 @@ You will be able to create the dataset and train model just in few steps.
 1. Clone the repository:
 
     ```
-    git clone https://github.com/Ceasari/OD_bot/
+    git clone https://github.com/Ceasari/digits_recognition/
     ```
 
 2. Install the required libraries:
@@ -38,13 +38,15 @@ You will be able to create the dataset and train model just in few steps.
     pip install -r requirements.txt
     ```
 
-3. Download the pre-trained model [link](https://drive.google.com/drive/folders/17ha83DuhPzufn5oN54mMY3WVq3UW3u47?usp=sharing) 
+3. To create dataset use `make_dataset.py`
+
+    * DO NOT FORGET TO SET OPTIONS in `datasets/ds_config.py`
 
 
     There are three pre-trained models: 
       
     
-    * YOLOv8_m trained based on medium model of YOLOv8m
+
     
     * YOLOv8_l trained based on large model of YOLOv8l
       
