@@ -6,7 +6,9 @@ Firstly, we create dataset based on MNIST
 
 The full code of creation is [here](https://github.com/Ceasari/digits_recognition/blob/main/datasets/Dataset_creation.py)
 
-[colab notebook](https://colab.research.google.com/drive/10IZhA6NowPVrabE8AsJqztSU-ly8Pdy4?usp=sharing)
+The easiest way to repeat is to use [colab notebook](https://colab.research.google.com/drive/10IZhA6NowPVrabE8AsJqztSU-ly8Pdy4?usp=sharing)
+
+You will be able to create the dataset and train model just in few steps. 
 
 
 
