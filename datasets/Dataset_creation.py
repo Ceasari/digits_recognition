@@ -4,11 +4,12 @@ import random
 import shutil
 import struct
 
-from datasets.ds_config import *
 import cv2
-
-import yaml
 import numpy as np
+import yaml
+
+from datasets.ds_config import DATASET_NAME, CLASSES, CLASSES_NAMES, SIZE, MAX_NOICE, MAX_ROTATE_ANGLE, ROTATE_CHANCE, \
+    H_FLIP_CHANCE, TOTAL_SET, SPLIT, DATASETS_SETS, RATIOS
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 

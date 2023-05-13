@@ -6,7 +6,8 @@ import cv2
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-from datasets.ds_config import DATASETS_SETS, DATASET_NAME
+
+from datasets.ds_config import DATASET_NAME, DATASETS_SETS
 
 
 # Function to convert bounding boxes in YOLO format to xmin, ymin, xmax, ymax.
@@ -120,7 +121,6 @@ def collect_data_from_ann():
 
 # Function to plot the class counts.
 def plot_class_counts():
-    path_to_datasets = os.path.abspath("datasets/") + '/' + DATASET_NAME + '/'
     classes = pd.DataFrame(collect_data_from_ann())
     class_counts_df = classes.copy()
     class_counts_df.rows = [str(i) for i in range(10)]
