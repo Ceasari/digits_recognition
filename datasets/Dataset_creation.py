@@ -161,18 +161,16 @@ def create_dataset() -> None:
                  't10k-images-idx3-ubyte', 't10k-labels-idx1-ubyte']
 
     for file in filenames:
-
         if file == filenames[0] or file == filenames[1]:
-            if not os.path.exists(f"{train_folder + file}.gz") and not os.path.exists(train_folder + file):
+            if not os.path.exists(f"{train_folder + file}.gz"):
                 os.system(f"curl -O {url}/{file}.gz")
                 # os.system(f"gunzip -f {file}.gz")
                 shutil.move(f"{os.getcwd()}/{file}.gz", train_folder)
         else:
-            if not os.path.exists(f"{test_folder + file}.gz") and not os.path.exists(test_folder + file):
-                if not os.path.exists(f"{test_folder + file}.gz") and not os.path.exists(test_folder + file):
-                    os.system(f"curl -O {url}/{file}.gz")
-                    # os.system(f"gunzip -f {file}.gz")
-                    shutil.move(f"{os.getcwd()}/{file}.gz", test_folder)
+            if not os.path.exists(f"{test_folder + file}.gz"):
+                os.system(f"curl -O {url}/{file}.gz")
+                # os.system(f"gunzip -f {file}.gz")
+                shutil.move(f"{os.getcwd()}/{file}.gz", test_folder)
 
     # Load train images
     if not os.path.exists(abs_path_with_mnist + 'train_pgm') or len(
