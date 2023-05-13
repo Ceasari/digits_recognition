@@ -42,27 +42,11 @@ You will be able to create the dataset and train model just in few steps.
 
     * DO NOT FORGET TO SET OPTIONS in `datasets/ds_config.py`
 
+4. To train model use `train_validate.py`
 
-    There are three pre-trained models: 
-      
-    
-
-    
-    * YOLOv8_l trained based on large model of YOLOv8l
-      
-    * YOLOv8_x trained based on extra large model of YOLOv8x
-
-4. Save the downloaded model to the [Model](Model)
-   
-5. Insert telegram API key and path to downloaded model to `config.py`
-
-6. Run `main.py`
-
-## Usage
-
-1. Start a chat with the bot by searching for `@bot_name`.
-2. Send the bot a photo with handwritten digits.
-3. Wait for the bot to process the image and return the original image with bounding boxes and labels of each detected digit.
+    * DO NOT FORGET
+        * comment line 25 or 29 depending on the first start or resuming the training
+        * the last and best weights will be saved in `runs/detect/train/weights/`
 
 ## License
 
