@@ -153,21 +153,6 @@ def create_dataset() -> None:
     filenames = ['train-images-idx3-ubyte.gz', 'train-labels-idx1-ubyte.gz',
                  't10k-images-idx3-ubyte.gz', 't10k-labels-idx1-ubyte.gz']
 
-    if not os.path.exists(train_folder + 'train-images-idx3-ubyte.gz') and not os.path.exists(
-            train_folder + 'train-labels-idx1-ubyte.gz') and not os.path.exists(
-        test_folder + 't10k-images-idx3-ubyte.gz') and not os.path.exists(
-        test_folder + 't10k-labels-idx1-ubyte.gz'):
-
-        for filename in filenames:
-            print(f"Downloading {filename}...")
-            os.system(f"curl -O {url}/{filename}")
-            os.system(f"gunzip -f {filename}")
-
-        shutil.move('train-images-idx3-ubyte.gz', train_folder)
-        shutil.move('train-labels-idx1-ubyte.gz', train_folder)
-        shutil.move('t10k-images-idx3-ubyte.gz', test_folder)
-        shutil.move('t10k-labels-idx1-ubyte.gz', test_folder)
-
     image_sizes = [3, 6, 3]
     if len(SPLIT) != 3:
         raise ValueError("The 'SPLIT' argument must be a list of three float values.")
@@ -185,10 +170,10 @@ def create_dataset() -> None:
             os.system(f"curl -O {url}/{filename}")
             os.system(f"gunzip -f {filename}")
 
-        shutil.move('train-images-idx3-ubyte.gz', train_folder)
-        shutil.move('train-labels-idx1-ubyte.gz', train_folder)
-        shutil.move('t10k-images-idx3-ubyte.gz', test_folder)
-        shutil.move('t10k-labels-idx1-ubyte.gz', test_folder)
+        shutil.move(f"{os.getcwd()}/train-images-idx3-ubyte.gz", train_folder)
+        shutil.move(f"{os.getcwd()}/train-labels-idx1-ubyte.gz", train_folder)
+        shutil.move(f"{os.getcwd()}/t10k-images-idx3-ubyte.gz", test_folder)
+        shutil.move(f"{os.getcwd()}/t10k-labels-idx1-ubyte.gz", test_folder)
 
     # Load train images
     if not os.path.exists(abs_path_with_mnist + 'train_pgm') or len(
