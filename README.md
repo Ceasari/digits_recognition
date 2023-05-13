@@ -10,6 +10,9 @@ The easiest way to repeat is to use [colab notebook](https://colab.research.goog
 
 You will be able to create the dataset and train model just in few steps. 
 
+## Usage 
+ 
+We created a simple [telegram bot](https://github.com/Ceasari/OD_bot/) that can recieve images and returning orginal image with bounding boxes and labes of digits. 
 
 
 ## Example of dataset
