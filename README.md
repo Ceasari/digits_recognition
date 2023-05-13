@@ -20,7 +20,9 @@ You will be able to create the dataset and train model just in few steps.
 
 ![matrix](img/matrix.png)
 
-![matrix](imgdist_digits.png)  ![matrix](img/distr_classes.png)
+![imgdist_digits](imgdist_digits.png)  
+
+![distr_classes](img/distr_classes.png)
 
 ## Installation
 
