@@ -1,4 +1,3 @@
-
 import gzip
 import os
 import random
@@ -145,13 +144,9 @@ def create_dataset() -> None:
     os.makedirs(train_folder, exist_ok=True)
     os.makedirs(test_folder, exist_ok=True)
 
-    if not os.path.exists(save_abs_path):
-        os.makedirs(save_abs_path)
-
-    # # download and extract MNIST dataset
-    url = 'http://yann.lecun.com/exdb/mnist/'
-    filenames = ['train-images-idx3-ubyte.gz', 'train-labels-idx1-ubyte.gz',
-                 't10k-images-idx3-ubyte.gz', 't10k-labels-idx1-ubyte.gz']
+    path_list = [save_abs_path, abs_path_with_mnist, train_folder, test_folder]
+    for path in path_list:
+        os.makedirs(path, exist_ok=True)
 
     image_sizes = [3, 6, 3]
     if len(SPLIT) != 3:
@@ -160,35 +155,24 @@ def create_dataset() -> None:
         if i < 0 or i > 1:
             raise ValueError("The values in the 'SPLIT' argument must be between 0 and 1.")
 
-    if not os.path.exists(train_folder + 'train-images-idx3-ubyte.gz') and not os.path.exists(
-            train_folder + 'train-labels-idx1-ubyte.gz') and not os.path.exists(
-        test_folder + 't10k-images-idx3-ubyte.gz') and not os.path.exists(
-        test_folder + 't10k-labels-idx1-ubyte.gz'):
+    # # download and extract MNIST dataset
+    url = 'http://yann.lecun.com/exdb/mnist/'
+    filenames = ['train-images-idx3-ubyte', 'train-labels-idx1-ubyte',
+                 't10k-images-idx3-ubyte', 't10k-labels-idx1-ubyte']
 
-        for filename in filenames:
-            print(f"Downloading {filename}...")
-            os.system(f"curl -O {url}/{filename}")
-            os.system(f"gunzip -f {filename}")
-        if os.path.exists("train-images-idx3-ubyte.gz"):
-            shutil.move(f"{os.getcwd()}/train-images-idx3-ubyte.gz", train_folder)
-        if os.path.exists("train-images-idx3-ubyte"):
-            shutil.move(f"{os.getcwd()}/train-images-idx3-ubyte", train_folder)
+    for file in filenames:
 
-        if os.path.exists("train-labels-idx1-ubyte.gz"):
-            shutil.move(f"{os.getcwd()}/train-labels-idx1-ubyte.gz", test_folder)
-        if os.path.exists("train-labels-idx1-ubyte"):
-            shutil.move(f"{os.getcwd()}/train-labels-idx1-ubyte", test_folder)
-
-        if os.path.exists("t10k-images-idx3-ubyte.gz"):
-            shutil.move(f"{os.getcwd()}/t10k-images-idx3-ubyte.gz", test_folder)
-        if os.path.exists("t10k-images-idx3-ubyte"):
-            shutil.move(f"{os.getcwd()}/t10k-images-idx3-ubyte", test_folder)
-
-        if os.path.exists("t10k-labels-idx1-ubyte.gz"):
-            shutil.move(f"{os.getcwd()}/t10k-labels-idx1-ubyte.gz", test_folder)
-        if os.path.exists("t10k-labels-idx1-ubyte"):
-            shutil.move(f"{os.getcwd()}/t10k-labels-idx1-ubyte", test_folder)
-
+        if file == filenames[0] or file == filenames[1]:
+            if not os.path.exists(f"{train_folder + file}.gz") and not os.path.exists(train_folder + file):
+                os.system(f"curl -O {url}/{file}.gz")
+                # os.system(f"gunzip -f {file}.gz")
+                shutil.move(f"{os.getcwd()}/{file}.gz", train_folder)
+        else:
+            if not os.path.exists(f"{test_folder + file}.gz") and not os.path.exists(test_folder + file):
+                if not os.path.exists(f"{test_folder + file}.gz") and not os.path.exists(test_folder + file):
+                    os.system(f"curl -O {url}/{file}.gz")
+                    # os.system(f"gunzip -f {file}.gz")
+                    shutil.move(f"{os.getcwd()}/{file}.gz", test_folder)
 
     # Load train images
     if not os.path.exists(abs_path_with_mnist + 'train_pgm') or len(
