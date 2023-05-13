@@ -48,6 +48,12 @@ You will be able to create the dataset and train model just in few steps.
         * to comment line 25 or 29 depending on the first start or resuming the training
         * the last and the best weights will be saved in `runs/detect/train/weights/`
 
+## The results of YOLOv8x
+
+![results](img/results.png)
+
+![confusion_matrix](img/confusion_matrix.png)  
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
