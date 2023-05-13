@@ -171,8 +171,8 @@ def create_dataset() -> None:
             os.system(f"gunzip -f {filename}")
         if os.path.exists("train-images-idx3-ubyte.gz"):
             shutil.move(f"{os.getcwd()}/train-images-idx3-ubyte.gz", train_folder)
-        if os.path.exists("train-labels-idx1-ubyte"):
-            shutil.move(f"{os.getcwd()}/train-labels-idx1-ubyte", train_folder)
+        if os.path.exists("train-images-idx3-ubyte"):
+            shutil.move(f"{os.getcwd()}/train-images-idx3-ubyte", train_folder)
 
         if os.path.exists("train-labels-idx1-ubyte.gz"):
             shutil.move(f"{os.getcwd()}/train-labels-idx1-ubyte.gz", test_folder)
