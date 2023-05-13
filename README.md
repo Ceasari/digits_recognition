@@ -12,9 +12,9 @@ You will be able to create the dataset and train model just in few steps.
 
 
 
-## Example
+## Example of dataset
 
-![Example image with handwritten digits and corresponding output](example1.jpg)
+![Example image with handwritten digits and corresponding output](img/train_ex.png)
 
 
 
