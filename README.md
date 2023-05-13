@@ -14,9 +14,15 @@ You will be able to create the dataset and train model just in few steps.
 
 ## Example of dataset
 
-![Example image with handwritten digits and corresponding output](img/train_ex.png)
+![train imgages](img/train_ex.png)
 
+## Statistic of dataset
 
+![matrix](img/matrix.png)
+
+![matrix](img/matrix.png)
+
+![matrix](img/matrix.png)
 
 ## Installation
 
