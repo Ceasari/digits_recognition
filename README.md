@@ -45,8 +45,8 @@ You will be able to create the dataset and train model just in few steps.
 4. To train model use `train_validate.py`
 
     * DO NOT FORGET
-        * comment line 25 or 29 depending on the first start or resuming the training
-        * the last and best weights will be saved in `runs/detect/train/weights/`
+        * to comment line 25 or 29 depending on the first start or resuming the training
+        * the last and the best weights will be saved in `runs/detect/train/weights/`
 
 ## License
 
