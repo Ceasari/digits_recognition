@@ -169,11 +169,26 @@ def create_dataset() -> None:
             print(f"Downloading {filename}...")
             os.system(f"curl -O {url}/{filename}")
             os.system(f"gunzip -f {filename}")
+        if os.path.exists("train-images-idx3-ubyte.gz"):
+            shutil.move(f"{os.getcwd()}/train-images-idx3-ubyte.gz", train_folder)
+        if os.path.exists("train-labels-idx1-ubyte"):
+            shutil.move(f"{os.getcwd()}/train-labels-idx1-ubyte", train_folder)
 
-        shutil.move(f"{os.getcwd()}/train-images-idx3-ubyte.gz", train_folder)
-        shutil.move(f"{os.getcwd()}/train-labels-idx1-ubyte.gz", train_folder)
-        shutil.move(f"{os.getcwd()}/t10k-images-idx3-ubyte.gz", test_folder)
-        shutil.move(f"{os.getcwd()}/t10k-labels-idx1-ubyte.gz", test_folder)
+        if os.path.exists("train-labels-idx1-ubyte.gz"):
+            shutil.move(f"{os.getcwd()}/train-labels-idx1-ubyte.gz", test_folder)
+        if os.path.exists("train-labels-idx1-ubyte"):
+            shutil.move(f"{os.getcwd()}/train-labels-idx1-ubyte", test_folder)
+
+        if os.path.exists("t10k-images-idx3-ubyte.gz"):
+            shutil.move(f"{os.getcwd()}/t10k-images-idx3-ubyte.gz", test_folder)
+        if os.path.exists("t10k-images-idx3-ubyte"):
+            shutil.move(f"{os.getcwd()}/t10k-images-idx3-ubyte", test_folder)
+
+        if os.path.exists("t10k-labels-idx1-ubyte.gz"):
+            shutil.move(f"{os.getcwd()}/t10k-labels-idx1-ubyte.gz", test_folder)
+        if os.path.exists("t10k-labels-idx1-ubyte"):
+            shutil.move(f"{os.getcwd()}/t10k-labels-idx1-ubyte", test_folder)
+
 
     # Load train images
     if not os.path.exists(abs_path_with_mnist + 'train_pgm') or len(
